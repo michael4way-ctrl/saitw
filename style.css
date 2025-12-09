@@ -1,0 +1,301 @@
+:root {
+  --primary-green: #6AB96A;
+  --light-green: #B0E0B0;
+  --cream: #FFF9F5;
+  --dark-text: #2D2D2D;
+  --transition: all 0.35s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--dark-text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* АМЕБНЫЙ ФОН — ПЛАВАЮЩИЕ ОРГАНИЧЕСКИЕ ФОРМЫ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--cream) 0%, #ffffff 100%);
+  z-index: -2;
+}
+
+/* Амебы — три слоя, разного размера и цвета, с анимацией */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="%23B0E0B0" opacity="0.1"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,20 C50,10 70,30 80,50 C90,70 70,90 50,80 C30,70 20,50 30,20 Z" fill="%23FFB6C1" opacity="0.08"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M40,15 C60,5 80,25 90,45 C100,65 80,85 60,75 C40,65 30,50 40,15 Z" fill="%236AB96A" opacity="0.05"/></svg>');
+  background-size: 400px 400px, 500px 500px, 600px 600px;
+  background-position: 0 0, 100px 100px, 200px 200px;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatAmoeba 40s infinite ease-in-out;
+}
+
+@keyframes floatAmoeba {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -15px) scale(1.02); }
+  50% { transform: translate(0, 0) scale(1.05); }
+  75% { transform: translate(-15px, 15px) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Логотип слева вверху */
+.logo-fixed {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--primary-green);
+  z-index: 10;
+  text-decoration: none;
+}
+
+/* Hero секция */
+.hero {
+  padding: 10rem 1.5rem 6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--primary-green);
+  text-shadow: 0 2px 8px rgba(106, 185, 106, 0.2);
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 720px;
+  margin: 0 auto 2.8rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Секции */
+.section {
+  padding: 5.5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-green);
+}
+
+/* Карточки — все одинаковые */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 6px 20px rgba(106, 185, 106, 0.08);
+  border: 1px solid rgba(106, 185, 106, 0.1);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(106, 185, 106, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.4rem;
+  color: var(--primary-green);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.card-text {
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  margin: 0;
+}
+
+/* Для третьей карточки — текст белый на зелёном логотипе */
+.card:nth-child(3) .card-title,
+.card:nth-child(3) .card-text {
+  color: white;
+}
+
+/* Кнопки */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(106, 185, 106, 0.3);
+}
+
+.btn-primary:hover {
+  background: #5aa85a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(106, 185, 106, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+}
+
+.btn-secondary:hover {
+  background: rgba(106, 185, 106, 0.08);
+}
+
+/* Форма */
+.form-section {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.8rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(106, 185, 106, 0.12);
+  border: 1px solid rgba(106, 185, 106, 0.15);
+}
+
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+/* Анимации прокрутки */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .logo-fixed {
+    font-size: 1.8rem;
+    top: 16px;
+    left: 16px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+    padding: 0 1rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
