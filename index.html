@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="tabpanel" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Фьючерсы на клубнику | ВкусСвилл</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Clash+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #6AB96A;
+      --cream: #FFF9F5;
+      --dark: #2D2D2D;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* АМЕБНЫЙ ФОН */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(135deg, #FFF9F5 0%, #ffffff 100%);
+    }
+    /* АМЕБНЫЙ ФОН — ТОЛЬКО ЗЕЛЕНЫЕ ОТТЕНКИ, БЕЗ КРАСНОГО */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"><path d="M250 60c110-20 200 80 200 180s-90 200-200 180S60 300 80 190s60-110 170-130z" fill="%236AB96A" opacity="0.06"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440"><path d="M200 40c80 0 160 80 160 160s-80 160-160 160S40 280 40 200 120 40 200 40z" fill="%23B0E0B0" opacity="0.08"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><path d="M300,100 C450,80 550,200 520,350 C490,500 350,600 200,550 C50,500 20,350 80,200 C140,120 200,80 300,100 Z" fill="%236AB96A" opacity="0.04"/></svg>');
+      background-size: 600px, 500px, 700px;
+      background-position: 80% 20%, 20% 80%, 50% 50%;
+      animation: blobFloat 45s infinite ease-in-out;
+    }
+    @keyframes blobFloat {
+      0%   { transform: translate(0,0) scale(1); }
+      50%  { transform: translate(20px, -20px) scale(1.03); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+
+    .logo {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      z-index: 10;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 10rem 1rem 6rem;
+    }
+    .hero h1 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: 4rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+    }
+
+    .section {
+      padding: 5rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      font-family: 'Clash Display', sans-serif;
+      font-size: 2.6rem;
+      color: var(--green);
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 20px rgba(106,185,106,0.1);
+      border: 1px solid rgba(106,185,106,0.15);
+    }
+    .card h3 {
+      font-family: 'Clash Display', sans-serif;
+      color: var(--green);
+      margin-bottom: .5rem;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 1rem;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(106,185,106,0.12);
+      border: 1px solid rgba(106,185,106,0.15);
+      max-width: 600px;
+      margin: auto;
+    }
+    .form-box label { font-weight: 600; }
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 0.9rem;
+      margin-top: .4rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .btn:hover { background: #5aa85a; }
+  </style>
+</head>
+<body>
+
+<div class="logo">ВКУССВИЛЛ</div>
+
+<section class="hero">
+  <h1>Инвестируй во вкус будущего</h1>
+  <p>Фьючерс на клубнику сезона 2026 года. Лучшие ягоды — по фиксированной цене.</p>
+</section>
+
+<section class="section" id="about">
+  <h2>Что такое фьючерс на клубнику?</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://cdn.qwenlm.ai/1dd67bcf-0a6e-4c05-9791-29b0fc109b12/348de1f0-5378-4965-a080-fd1f4eed269a_image.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiMWRkNjdiY2YtMGE2ZS00YzA1LTk3OTEtMjliMGZjMTA5YjEyIiwicmVzb3VyY2VfaWQiOiIzNDhkZTFmMC01Mzc4LTQ5NjUtYTA4MC1mZDFmNGVlZDI2OWEiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.o2zODkarTzx53ZcaECGGzuUkMLy6kuW-R5cfnu0o2H8&x-oss-process=image/resize,m_mfit,w_320,h_320" alt="Свежая клубника в корзинке" />
+      <h3>Инвестиция во свежесть</h3>
+      <p>Фиксируете цену заранее — получаете идеальную ягоду в сезон.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn.qwenlm.ai/1dd67bcf-0a6e-4c05-9791-29b0fc109b12/a571703d-1701-458f-9f06-8f31900acdd2_image.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiMWRkNjdiY2YtMGE2ZS00YzA1LTk3OTEtMjliMGZjMTA5YjEyIiwicmVzb3VyY2VfaWQiOiJhNTcxNzAzZC0xNzAxLTQ1OGYtOWYwNi04ZjMxOTAwYWNkZDIiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.Z75gY3p5Fy-Hi4R_Wao1uMgSIpU0L0K8Kmj91VRDu3E&x-oss-process=image/resize,m_mfit,w_320,h_320" alt="Человек держит в руках спелую клубнику" />
+      <h3>Гарантированное качество</h3>
+      <p>Только лучшие сорта, выращенные без химии.</p>
+    </div>
+    <div class="card">
+      <img src="https://cdn1.flamp.ru/4ee2076f4f0a01d6cf6f630b331d1f1c.png" alt="ВкусСвилл Экология" />
+      <h3>Экологичность</h3>
+      <p>Поддержка локальных фермеров и экологичных хозяйств.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="form">
+  <h2>Оформите фьючерс</h2>
+  <div class="form-box">
+    <form>
+      <label>Имя</label>
+      <input type="text" required placeholder="Иван Иванов">
+
+      <label>Email</label>
+      <input type="email" required placeholder="ivan@example.com">
+
+      <label>Количество (кг)</label>
+      <select required>
+        <option value="">Выберите</option>
+        <option>1 кг</option>
+        <option>5 кг</option>
+        <option>10 кг</option>
+        <option>25 кг</option>
+      </select>
+
+      <button class="btn">Забронировать</button>
+    </form>
+  </div>
+</section>
+
+<!-- ✅ ВОТ ОТВЕТЫ НА ВОПРОСЫ — СЕКЦИЯ FAQ -->
+<section class="section" id="faq">
+  <h2>Часто задаваемые вопросы</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Можно ли отменить фьючерс?</h3>
+      <p>Да, до 1 марта 2026 года. Мы вернём деньги без комиссий.</p>
+    </div>
+    <div class="card">
+      <h3>Какая цена?</h3>
+      <p>Фиксированная: 299 руб/кг — цена 2025 года. Вы защищены от инфляции.</p>
+    </div>
+    <div class="card">
+      <h3>Можно ли передать фьючерс другому?</h3>
+      <p>Да, как ценные бумаги — просто сообщите нам нового владельца.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
