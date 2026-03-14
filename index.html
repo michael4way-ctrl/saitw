@@ -1,229 +1,605 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" itemscope itemtype="https://schema.org/Article">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="tabpanel" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Фьючерсы на клубнику | ВкусСвилл</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Clash+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --green: #6AB96A;
-      --cream: #FFF9F5;
-      --dark: #2D2D2D;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      overflow-x: hidden;
-    }
-
-    /* АМЕБНЫЙ ФОН */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: linear-gradient(135deg, #FFF9F5 0%, #ffffff 100%);
-    }
-    /* АМЕБНЫЙ ФОН — ТОЛЬКО ЗЕЛЕНЫЕ ОТТЕНКИ, БЕЗ КРАСНОГО */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background-image: 
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"><path d="M250 60c110-20 200 80 200 180s-90 200-200 180S60 300 80 190s60-110 170-130z" fill="%236AB96A" opacity="0.06"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440"><path d="M200 40c80 0 160 80 160 160s-80 160-160 160S40 280 40 200 120 40 200 40z" fill="%23B0E0B0" opacity="0.08"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><path d="M300,100 C450,80 550,200 520,350 C490,500 350,600 200,550 C50,500 20,350 80,200 C140,120 200,80 300,100 Z" fill="%236AB96A" opacity="0.04"/></svg>');
-      background-size: 600px, 500px, 700px;
-      background-position: 80% 20%, 20% 80%, 50% 50%;
-      animation: blobFloat 45s infinite ease-in-out;
-    }
-    @keyframes blobFloat {
-      0%   { transform: translate(0,0) scale(1); }
-      50%  { transform: translate(20px, -20px) scale(1.03); }
-      100% { transform: translate(0,0) scale(1); }
-    }
-
-    .logo {
-      position: fixed;
-      top: 24px;
-      left: 24px;
-      font-family: 'Clash Display', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--green);
-      z-index: 10;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 10rem 1rem 6rem;
-    }
-    .hero h1 {
-      font-family: 'Clash Display', sans-serif;
-      font-size: 4rem;
-      color: var(--green);
-      margin-bottom: 1rem;
-      font-weight: 800;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-      color: #555;
-    }
-
-    .section {
-      padding: 5rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      font-family: 'Clash Display', sans-serif;
-      font-size: 2.6rem;
-      color: var(--green);
-      margin-bottom: 3rem;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 1.8rem;
-      box-shadow: 0 6px 20px rgba(106,185,106,0.1);
-      border: 1px solid rgba(106,185,106,0.15);
-    }
-    .card h3 {
-      font-family: 'Clash Display', sans-serif;
-      color: var(--green);
-      margin-bottom: .5rem;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 1rem;
-    }
-
-    .form-box {
-      background: #fff;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(106,185,106,0.12);
-      border: 1px solid rgba(106,185,106,0.15);
-      max-width: 600px;
-      margin: auto;
-    }
-    .form-box label { font-weight: 600; }
-    .form-box input, .form-box select {
-      width: 100%;
-      padding: 0.9rem;
-      margin-top: .4rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 1rem;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .btn:hover { background: #5aa85a; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как выбрать подгузники: полное руководство для родителей | Pampers</title>
+  <meta name="description" content="Как правильно выбрать подгузники: размеры по весу, состав, впитываемость, ночные и дневные модели. Советы педиатра для новорождённых и детей до 2 лет.">
+  <link rel="canonical" href="https://pampers.ru/articles/kak-vybrat-podguzniki">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta property="og:title" content="Как выбрать подгузники: полное руководство для родителей">
+  <meta property="og:description" content="Размеры, состав, впитываемость, ночные и дневные модели — всё что важно при выборе подгузников.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pampers.ru/articles/kak-vybrat-podguzniki">
+  <meta property="og:image" content="https://pampers.ru/assets/og-podguzniki.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Pampers Россия">
+  <meta property="article:published_time" content="2024-01-15T09:00:00+03:00">
+  <meta property="article:modified_time" content="2025-03-01T12:00:00+03:00">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Как выбрать подгузники: полное руководство">
+  <meta name="twitter:description" content="Размеры, состав, впитываемость — всё важное о выборе подгузников.">
+  <meta name="twitter:image" content="https://pampers.ru/assets/og-podguzniki.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://pampers.ru/articles/kak-vybrat-podguzniki#article","headline":"Как выбрать подгузники: полное руководство для родителей","description":"Подробное руководство по выбору подгузников: размеры по весу, составы, впитываемость.","image":{"@type":"ImageObject","url":"https://pampers.ru/assets/og-podguzniki.jpg","width":1200,"height":630},"datePublished":"2024-01-15T09:00:00+03:00","dateModified":"2025-03-01T12:00:00+03:00","author":{"@type":"Person","@id":"https://pampers.ru/team/elena-sorokina","name":"Елена Сорокина","jobTitle":"Педиатр, медицинский консультант"},"editor":{"@type":"Person","name":"Анна Ковалёва","jobTitle":"Главный редактор"},"publisher":{"@type":"Organization","@id":"https://pampers.ru#organization","name":"Pampers Россия","url":"https://pampers.ru"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://pampers.ru/articles/kak-vybrat-podguzniki"},"articleSection":"Уход за ребёнком","inLanguage":"ru"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://pampers.ru"},{"@type":"ListItem","position":2,"name":"Статьи","item":"https://pampers.ru/articles"},{"@type":"ListItem","position":3,"name":"Как выбрать подгузники","item":"https://pampers.ru/articles/kak-vybrat-podguzniki"}]},{"@type":"Organization","@id":"https://pampers.ru#organization","name":"Pampers Россия","parentOrganization":{"@type":"Organization","name":"Procter & Gamble","url":"https://www.pg.com"},"url":"https://pampers.ru","contactPoint":{"@type":"ContactPoint","telephone":"+7-800-200-02-00","contactType":"customer service","availableLanguage":"Russian","contactOption":"TollFree"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как определить размер подгузника по весу ребёнка?","acceptedAnswer":{"@type":"Answer","text":"NB — до 5 кг, 1 — 2–5 кг, 2 — 3–6 кг, 3 — 6–10 кг, 4 — 9–14 кг, 5 — 11–16 кг, 6 — от 13 кг. На границе — берите больший."}},{"@type":"Question","name":"Чем отличаются ночные подгузники от дневных?","acceptedAnswer":{"@type":"Answer","text":"Ночные рассчитаны на 10–12 часов: многослойное ядро, плотная конструкция. Дневные тоньше — для активного движения 4–6 часов."}},{"@type":"Question","name":"Когда переходить с подгузников на трусики?","acceptedAnswer":{"@type":"Answer","text":"С 8–10 месяцев, когда малыш начинает активно ползать и вставать."}},{"@type":"Question","name":"Могут ли подгузники вызвать аллергию?","acceptedAnswer":{"@type":"Answer","text":"Истинная аллергия редка. Чаще — пелёночный дерматит от длительного контакта с влагой."}}]}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="logo">ВКУССВИЛЛ</div>
+<!-- Floating background orbs -->
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
 
-<section class="hero">
-  <h1>Инвестируй во вкус будущего</h1>
-  <p>Фьючерс на клубнику сезона 2026 года. Лучшие ягоды — по фиксированной цене.</p>
-</section>
+<!-- Header — якорная навигация, без мёртвых ссылок -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="#" class="site-logo" aria-label="Начало страницы">
+      <span class="logo-mark" aria-hidden="true">P</span>
+      <span class="logo-text">Pampers</span>
+      <span class="logo-sep" aria-hidden="true">·</span>
+      <span class="logo-sub">Руководство для родителей</span>
+    </a>
+    <nav class="header-nav" aria-label="Разделы статьи">
+      <ul>
+        <li><a href="#razmer">Размеры</a></li>
+        <li><a href="#vpityvaemost">Впитываемость</a></li>
+        <li><a href="#pampers-models">Линейки</a></li>
+        <li><a href="#faq">Вопросы</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden>
+    <ul>
+      <li><a href="#quick-answer">Главное</a></li>
+      <li><a href="#razmer">Размеры</a></li>
+      <li><a href="#sostav">Состав</a></li>
+      <li><a href="#vpityvaemost">Впитываемость</a></li>
+      <li><a href="#pampers-models">Линейки Pampers</a></li>
+      <li><a href="#fakty">Факты</a></li>
+      <li><a href="#faq">Вопросы и ответы</a></li>
+      <li><a href="#vyvod">Вывод</a></li>
+    </ul>
+  </nav>
+</header>
 
-<section class="section" id="about">
-  <h2>Что такое фьючерс на клубнику?</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://cdn.qwenlm.ai/1dd67bcf-0a6e-4c05-9791-29b0fc109b12/348de1f0-5378-4965-a080-fd1f4eed269a_image.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiMWRkNjdiY2YtMGE2ZS00YzA1LTk3OTEtMjliMGZjMTA5YjEyIiwicmVzb3VyY2VfaWQiOiIzNDhkZTFmMC01Mzc4LTQ5NjUtYTA4MC1mZDFmNGVlZDI2OWEiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.o2zODkarTzx53ZcaECGGzuUkMLy6kuW-R5cfnu0o2H8&x-oss-process=image/resize,m_mfit,w_320,h_320" alt="Свежая клубника в корзинке" />
-      <h3>Инвестиция во свежесть</h3>
-      <p>Фиксируете цену заранее — получаете идеальную ягоду в сезон.</p>
+<main id="main-content" role="main">
+  <div class="article-layout container">
+
+    <!-- TOC sidebar desktop -->
+    <aside class="toc-sidebar" aria-label="Содержание статьи">
+      <div class="toc-sticky" id="toc-sticky">
+        <p class="toc-label">Содержание</p>
+        <nav aria-label="Якорная навигация">
+          <ol class="toc-list" id="toc-list">
+            <li><a href="#quick-answer" class="toc-link">Главное за 30 секунд</a></li>
+            <li><a href="#razmer" class="toc-link">Как выбрать размер</a></li>
+            <li><a href="#sostav" class="toc-link">Состав и материалы</a></li>
+            <li><a href="#vpityvaemost" class="toc-link">Впитываемость</a></li>
+            <li><a href="#trusiki" class="toc-link">Трусики-подгузники</a></li>
+            <li><a href="#gipoallergennye" class="toc-link">Гипоаллергенность</a></li>
+            <li><a href="#pampers-models" class="toc-link toc-link--highlight">Линейки Pampers</a></li>
+            <li><a href="#fakty" class="toc-link">Ключевые факты</a></li>
+            <li><a href="#faq" class="toc-link">Вопросы и ответы</a></li>
+            <li><a href="#vyvod" class="toc-link">Вывод</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <article itemscope itemtype="https://schema.org/Article" itemprop="mainEntity" class="article-body" aria-labelledby="article-heading">
+
+      <!-- ═══ HERO ═══ -->
+      <header class="article-hero" role="presentation">
+        <div class="hero-bg-pattern" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+        <div class="hero-inner">
+          <div class="article-category">
+            <span class="category-dot" aria-hidden="true"></span>
+            <span class="article-category-label">Уход за ребёнком</span>
+          </div>
+
+          <h1 id="article-heading" itemprop="headline" class="article-h1">
+            Как выбрать подгузники
+            <em>полное руководство для родителей</em>
+          </h1>
+
+          <p class="article-deck" itemprop="description">
+            Разбираем размеры по весу, составы, уровни впитываемости и практические критерии выбора —
+            чтобы малышу было комфортно, а коже хорошо.
+          </p>
+
+          <div class="hero-stats" aria-label="Ключевые цифры">
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="7">0</span>
+              <span class="hero-stat-label">размеров<br>подгузников</span>
+            </div>
+            <div class="hero-stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="12">0</span>
+              <span class="hero-stat-label">часов ночной<br>защиты</span>
+            </div>
+            <div class="hero-stat-divider" aria-hidden="true"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="9">0</span>
+              <span class="hero-stat-label">минут<br>чтения</span>
+            </div>
+          </div>
+
+          <div class="article-meta">
+            <div class="meta-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span class="meta-avatar" aria-hidden="true">ЕС</span>
+              <div class="meta-author-info">
+                <span class="meta-by">Автор</span>
+                <strong itemprop="name" class="meta-author-name">Елена Сорокина</strong>
+                <span itemprop="jobTitle" class="meta-role">Педиатр, медицинский консультант</span>
+              </div>
+            </div>
+            <div class="meta-dates">
+              <div class="meta-date-item">
+                <span class="meta-label">Опубликовано</span>
+                <time itemprop="datePublished" datetime="2024-01-15">15 января 2024</time>
+              </div>
+              <div class="meta-date-item">
+                <span class="meta-label">Обновлено</span>
+                <time itemprop="dateModified" datetime="2025-03-01">1 марта 2025</time>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-ring hero-ring-1"></div>
+          <div class="hero-ring hero-ring-2"></div>
+          <div class="hero-ring hero-ring-3"></div>
+          <svg class="hero-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="56" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity="0.35"/>
+            <path d="M35 48 C35 38 45 30 60 30 C75 30 85 38 85 48 L85 75 C85 83 75 90 60 90 C45 90 35 83 35 75 Z" stroke="currentColor" stroke-width="1.5" fill="rgba(255,255,255,0.07)"/>
+            <path d="M35 58 C28 55 24 60 28 67 C31 73 38 73 42 70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M85 58 C92 55 96 60 92 67 C89 73 82 73 78 70" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="50" cy="52" r="3" fill="currentColor"/>
+            <circle cx="70" cy="52" r="3" fill="currentColor"/>
+            <path d="M50 68 C52 73 58 76 60 76 C62 76 68 73 70 68" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+      </header>
+
+      <!-- Mobile TOC -->
+      <nav class="toc-inline" aria-label="Содержание статьи">
+        <button class="toc-toggle" aria-expanded="false" aria-controls="toc-inline-list">
+          <span>Содержание статьи</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 10.5L3 5.5h10L8 10.5z"/></svg>
+        </button>
+        <ol id="toc-inline-list" class="toc-inline-list" hidden>
+          <li><a href="#quick-answer">Главное за 30 секунд</a></li>
+          <li><a href="#razmer">Как выбрать размер</a></li>
+          <li><a href="#sostav">Состав и материалы</a></li>
+          <li><a href="#vpityvaemost">Впитываемость: дневные и ночные</a></li>
+          <li><a href="#trusiki">Трусики-подгузники</a></li>
+          <li><a href="#gipoallergennye">Гипоаллергенность</a></li>
+          <li><a href="#pampers-models">Линейки Pampers</a></li>
+          <li><a href="#fakty">Ключевые факты</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+          <li><a href="#vyvod">Вывод</a></li>
+        </ol>
+      </nav>
+
+      <!-- ═══ QUICK ANSWER ═══ -->
+      <section id="quick-answer" class="quick-answer reveal" aria-labelledby="qa-heading">
+        <div class="qa-header">
+          <div class="qa-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 11.5h-1.5v-5h1.5v5zm0-6.5h-1.5V5.5h1.5V7z"/></svg>
+          </div>
+          <h2 id="qa-heading" class="qa-title">Главное за 30 секунд</h2>
+        </div>
+        <ul class="qa-list" role="list">
+          <li><strong>Размер — по весу, не по возрасту.</strong> Двое детей одного возраста могут носить разные размеры.</li>
+          <li><strong>Правильный подгузник не оставляет следов.</strong> Красные полосы от резинок — сигнал смены размера.</li>
+          <li><strong>Меняйте каждые 3–4 часа</strong> — это важнее, чем выбор бренда.</li>
+          <li><strong>Для ночи — специальные ночные модели</strong> с защитой на 10–12 часов.</li>
+          <li><strong>Чувствительная кожа?</strong> Без красителей и ароматизаторов, с хлопковым слоем.</li>
+        </ul>
+      </section>
+
+      <!-- ═══ РАЗМЕР ═══ -->
+      <section id="razmer" class="article-section reveal" aria-labelledby="razmer-heading">
+        <h2 id="razmer-heading">Как выбрать размер подгузника</h2>
+        <p>Правильный размер — основа основ. Слишком маленький сдавливает кожу и протекает; слишком большой пропускает жидкость по боковым швам. Размерная сетка строится по весу ребёнка, а не по возрасту.</p>
+        <p>Двухмесячный малыш весом 4 кг и двухмесячный весом 6 кг носят разные размеры. Возраст — лишь ориентир.</p>
+
+        <h3>Таблица размеров подгузников</h3>
+        <div class="table-wrapper" role="region" aria-label="Таблица размеров" tabindex="0">
+          <table class="size-table">
+            <caption class="sr-only">Соответствие размеров подгузников весу ребёнка</caption>
+            <thead>
+              <tr>
+                <th scope="col">Размер</th>
+                <th scope="col">Вес</th>
+                <th scope="col">Особенности</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="size-badge">NB</span> Newborn</td><td>до 5 кг</td><td>Вырез для пупочной ранки; для первых недель</td></tr>
+              <tr><td><span class="size-badge">1</span> Mini</td><td>2–5 кг</td><td>Первые недели; часто параллельно с NB</td></tr>
+              <tr><td><span class="size-badge">2</span> Mini+</td><td>3–6 кг</td><td>Переходный; удобен при быстром наборе веса</td></tr>
+              <tr><td><span class="size-badge size-badge--accent">3</span> Midi</td><td>6–10 кг</td><td>Самый универсальный; большинство детей 4–9 мес</td></tr>
+              <tr><td><span class="size-badge">4</span> Maxi</td><td>9–14 кг</td><td>Активные малыши; часто в формате трусиков</td></tr>
+              <tr><td><span class="size-badge">5</span> Junior</td><td>11–16 кг</td><td>Дети старше года, умеющие ходить</td></tr>
+              <tr><td><span class="size-badge">6</span> XL</td><td>от 13 кг</td><td>Крупные дети; преимущественно трусики</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--tip" role="note" aria-label="Совет">
+          <div class="callout-icon" aria-hidden="true">💡</div>
+          <div class="callout-body">
+            <strong>На границе размеров — берите больший.</strong> Тугая резинка на бёдрах и животе хуже, чем чуть более свободный контур.
+          </div>
+        </div>
+
+        <h3>Когда размер не подходит</h3>
+        <ul class="feature-list">
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div><strong>Красные следы от резинок</strong> после снятия, не проходящие за несколько минут.</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div><strong>Систематические протечки через боковые швы</strong> при нормальном наполнении.</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div><strong>Подгузник «съезжает» или провисает</strong> — ребёнок вырос.</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div><strong>Малыш беспокоится при движении</strong> — трёт кожу или сковывает бёдра.</div></li>
+        </ul>
+      </section>
+
+      <!-- ═══ СОСТАВ ═══ -->
+      <section id="sostav" class="article-section reveal" aria-labelledby="sostav-heading">
+        <h2 id="sostav-heading">Состав и материалы: что важно для кожи</h2>
+        <p>Внутренняя поверхность контактирует с кожей ребёнка часами. Понимание компонентов помогает осознанно читать упаковку.</p>
+
+        <h3>Основные компоненты</h3>
+        <div class="component-grid">
+          <div class="component-card">
+            <div class="component-num" aria-hidden="true">01</div>
+            <h4>Суперабсорбирующий полимер (SAP)</h4>
+            <p>Превращает жидкость в гель — именно SAP делает подгузники тонкими, но эффективными.</p>
+          </div>
+          <div class="component-card">
+            <div class="component-num" aria-hidden="true">02</div>
+            <h4>Внутренний нетканый слой</h4>
+            <p>Мягкий, дышащий. Лучшие варианты — с хлопком или алоэ вера: снижает трение и опрелости.</p>
+          </div>
+          <div class="component-card">
+            <div class="component-num" aria-hidden="true">03</div>
+            <h4>Распределяющий слой</h4>
+            <p>Быстро «передаёт» жидкость в глубину, чтобы поверхность оставалась сухой.</p>
+          </div>
+          <div class="component-card">
+            <div class="component-num" aria-hidden="true">04</div>
+            <h4>Внешний дышащий слой</h4>
+            <p>Обеспечивает воздухообмен. Microporous backsheet — признак качественной модели.</p>
+          </div>
+        </div>
+
+        <div class="callout callout--warning" role="note" aria-label="Чувствительная кожа">
+          <div class="callout-icon" aria-hidden="true">⚠️</div>
+          <div class="callout-body">
+            <strong>При склонности к раздражению избегайте:</strong>
+            <ul>
+              <li>Красителей в декоративных принтах</li>
+              <li>Ароматизаторов и отдушек во внутреннем слое</li>
+              <li>Агрессивных клеевых компонентов в застёжках</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ ВПИТЫВАЕМОСТЬ ═══ -->
+      <section id="vpityvaemost" class="article-section reveal" aria-labelledby="vpityvaemost-heading">
+        <h2 id="vpityvaemost-heading">Впитываемость: дневные и ночные подгузники</h2>
+        <p>Разница — не в маркетинге, а в конструкции ядра и толщине слоёв.</p>
+
+        <div class="compare-grid">
+          <div class="compare-card compare-card--day">
+            <div class="compare-header">
+              <span class="compare-icon" aria-hidden="true">☀️</span>
+              <h3>Дневные</h3>
+            </div>
+            <ul class="compare-list">
+              <li>4–6 часов активного использования</li>
+              <li>Тоньше и легче, не стесняют движения</li>
+              <li>Лучший воздухообмен</li>
+              <li>Быстрое первичное впитывание</li>
+            </ul>
+            <p class="compare-use">Бодрствование, прогулки, занятия</p>
+          </div>
+          <div class="compare-card compare-card--night">
+            <div class="compare-header">
+              <span class="compare-icon" aria-hidden="true">🌙</span>
+              <h3>Ночные</h3>
+            </div>
+            <ul class="compare-list">
+              <li>10–12 часов удержания влаги</li>
+              <li>Многослойное распределённое ядро</li>
+              <li>Плотная конструкция, не смещается</li>
+              <li>Усиленные боковые барьеры</li>
+            </ul>
+            <p class="compare-use">Когда малыш спит 6+ часов</p>
+          </div>
+        </div>
+
+        <div class="callout callout--tip" role="note">
+          <div class="callout-icon" aria-hidden="true">💡</div>
+          <div class="callout-body">
+            Нет ночных? Размер на один больше — временная мера. Постоянное решение — правильная ночная модель.
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ ТРУСИКИ ═══ -->
+      <section id="trusiki" class="article-section reveal" aria-labelledby="trusiki-heading">
+        <h2 id="trusiki-heading">Трусики-подгузники: когда переходить</h2>
+        <p>Трусики надеваются сверху вниз и снимаются разрывом боковых швов. Ключевой момент — активная двигательная активность: ползание, вставание, первые шаги (обычно 8–10 месяцев).</p>
+
+        <div class="table-wrapper" role="region" aria-label="Классические vs трусики" tabindex="0">
+          <table class="compare-table">
+            <caption class="sr-only">Классические подгузники vs трусики</caption>
+            <thead>
+              <tr>
+                <th scope="col">Параметр</th>
+                <th scope="col">Классические</th>
+                <th scope="col">Трусики</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Надевание</td><td>Лёжа, застёжки-липучки</td><td>Стоя или на ходу</td></tr>
+              <tr><td>Свобода движений</td><td>Хорошая</td><td>Максимальная</td></tr>
+              <tr><td>Уровень защиты</td><td>Высокий</td><td>Высокий</td></tr>
+              <tr><td>Скорость смены</td><td>Требует укладывания</td><td>Снять стоя за 10 секунд</td></tr>
+              <tr><td>Возраст</td><td>С рождения</td><td>С 8–10 месяцев</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══ ГИПОАЛЛЕРГЕННОСТЬ ═══ -->
+      <section id="gipoallergennye" class="article-section reveal" aria-labelledby="gipoallergennye-heading">
+        <h2 id="gipoallergennye-heading">Гипоаллергенность и экологичность</h2>
+        <p>«Гипоаллергенный» — маркетинговый термин без единого стандарта. Ориентируйтесь на состав и независимые сертификаты.</p>
+
+        <ul class="feature-list">
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div>Без красителей и ароматизаторов во внутреннем слое</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div>Независимый сертификат: OEKO-TEX, Nordic Swan, EU Ecolabel</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div>Хлопковые или бамбуковые волокна верхнего покрытия</div></li>
+          <li><span class="feature-icon" aria-hidden="true">◦</span><div>Нейтральный pH 4,5–5,5 — ближе к pH кожи ребёнка</div></li>
+        </ul>
+      </section>
+
+      <!-- ═══ PAMPERS MODELS (данные в main.js → PAMPERS_MODELS) ═══ -->
+      <section id="pampers-models" class="article-section pampers-guide reveal" aria-labelledby="pampers-models-heading">
+        <div class="section-eyebrow">Редакционный гид</div>
+        <h2 id="pampers-models-heading">Линейки Pampers: что подходит на каждом этапе</h2>
+        <p class="section-intro">
+          Разные этапы развития — разные потребности. Ниже — краткий гид по основным линейкам Pampers.
+          Данные носят информационный характер; актуальный ассортимент уточняйте у продавца.
+        </p>
+        <!-- Карточки — рендерит JS из массива PAMPERS_MODELS -->
+        <div class="models-grid" id="models-grid" aria-label="Линейки Pampers по этапам"></div>
+
+        <!-- Таблица сравнения — рендерит JS -->
+        <div class="models-table-section">
+          <h3>Сводная таблица: быстрое сравнение</h3>
+          <div class="premium-table-wrapper" role="region" aria-label="Сравнение линеек Pampers" tabindex="0">
+            <table class="premium-table" id="pampers-table-el">
+              <caption class="sr-only">Сравнение линеек подгузников Pampers по этапам</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Линейка</th>
+                  <th scope="col">Для кого</th>
+                  <th scope="col">Ключевое преимущество</th>
+                  <th scope="col">Сценарий</th>
+                </tr>
+              </thead>
+              <tbody id="pampers-table-body">
+                <!-- Строки вставляет JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ KEY FACTS ═══ -->
+      <section id="fakty" class="key-facts reveal" aria-labelledby="fakty-heading">
+        <div class="key-facts-bg" aria-hidden="true"></div>
+        <div class="key-facts-content">
+          <h2 id="fakty-heading" class="key-facts-title">Ключевые факты</h2>
+          <div class="facts-grid">
+            <div class="fact-card">
+              <div class="fact-num counter" data-target="12">0</div>
+              <div class="fact-desc">смен в сутки в первый месяц</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-num counter" data-target="6">0</div>
+              <div class="fact-desc">размеров за первые два года</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-num">3–4 ч</div>
+              <div class="fact-desc">интервал между сменами днём</div>
+            </div>
+            <div class="fact-card">
+              <div class="fact-num">10–12 ч</div>
+              <div class="fact-desc">удерживают ночные модели</div>
+            </div>
+          </div>
+          <p class="facts-note">Своевременная смена — главный фактор защиты кожи, важнее марки и состава.</p>
+        </div>
+      </section>
+
+      <!-- ═══ EXPERT QUOTE ═══ -->
+      <blockquote class="expert-quote reveal" cite="https://pampers.ru/team/elena-sorokina">
+        <div class="quote-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor"><path d="M9.333 21.333c0 1.467-1.2 2.667-2.666 2.667S4 22.8 4 21.333c0-2.933 1.6-5.333 4-6.933V8h8v8C13.6 17.6 9.333 19.067 9.333 21.333zm14.667 0c0 1.467-1.2 2.667-2.667 2.667-1.466 0-2.666-1.2-2.666-2.667C18.667 18.4 20.267 16 22.667 14.4V8H30v8C27.2 17.6 24 19.067 24 21.333z"/></svg>
+        </div>
+        <p>Родители часто спрашивают, какой бренд лучше. Мой ответ — важнее своевременная смена, чем марка. Подгузник любого качественного производителя при регулярной смене не вызовет раздражения. Если кожа реагирует — сначала исключите несвоевременную смену и неправильный размер.</p>
+        <footer class="quote-attribution">
+          <span class="quote-avatar" aria-hidden="true">ЕС</span>
+          <div>
+            <cite class="quote-name">Елена Сорокина</cite>
+            <span class="quote-role">Педиатр, 12 лет практики. Медицинский консультант Pampers.</span>
+          </div>
+        </footer>
+      </blockquote>
+
+      <!-- ═══ FAQ ═══ -->
+      <section id="faq" class="article-section reveal" aria-labelledby="faq-heading" itemscope itemtype="https://schema.org/FAQPage">
+        <h2 id="faq-heading">Вопросы и ответы</h2>
+        <div class="faq-list">
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details>
+              <summary class="faq-question" itemprop="name">Как определить размер по весу?<span class="faq-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 9.5L2 4.5h10L7 9.5z"/></svg></span></summary>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>NB — до 5 кг, 1 — 2–5 кг, 2 — 3–6 кг, 3 — 6–10 кг, 4 — 9–14 кг, 5 — 11–16 кг, 6 — от 13 кг. На границе — берите больший. Проверка: после надевания в зоне бёдер и живота должен проходить один палец без усилия.</p></div></div>
+            </details>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details>
+              <summary class="faq-question" itemprop="name">Чем отличаются ночные от дневных?<span class="faq-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 9.5L2 4.5h10L7 9.5z"/></svg></span></summary>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>Ночные рассчитаны на 10–12 часов: многослойное ядро, плотная конструкция, усиленные боковые барьеры. Дневные тоньше — для активного движения 4–6 часов.</p></div></div>
+            </details>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details>
+              <summary class="faq-question" itemprop="name">Когда переходить на трусики?<span class="faq-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 9.5L2 4.5h10L7 9.5z"/></svg></span></summary>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>С 8–10 месяцев, когда малыш начинает активно ползать и вставать. Трусики не ограничивают движения и легко снимаются при смене.</p></div></div>
+            </details>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details>
+              <summary class="faq-question" itemprop="name">Могут ли подгузники вызвать аллергию?<span class="faq-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 9.5L2 4.5h10L7 9.5z"/></svg></span></summary>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>Истинная аллергия на компоненты редка. Чаще — пелёночный дерматит от длительного контакта с влагой. При стойкой реакции обратитесь к педиатру.</p></div></div>
+            </details>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <details>
+              <summary class="faq-question" itemprop="name">Нужны ли добавки алоэ и витамина E?<span class="faq-arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 9.5L2 4.5h10L7 9.5z"/></svg></span></summary>
+              <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text"><p>Снижают риск раздражения при чувствительной коже. Но главное — регулярная смена каждые 3–4 часа или сразу после стула.</p></div></div>
+            </details>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ═══ ВЫВОД ═══ -->
+      <section id="vyvod" class="article-section vyvod reveal" aria-labelledby="vyvod-heading">
+        <h2 id="vyvod-heading">Вывод</h2>
+        <p>Правильный подгузник — тот, который подходит по размеру, не раздражает кожу и не протекает. Начните с веса ребёнка, проверьте отсутствие следов и протеканий.</p>
+        <p>Важны три вещи: правильный размер, регулярная смена и подходящий состав при чувствительной коже. Для ночного сна — специализированные ночные модели.</p>
+      </section>
+
+      <!-- ═══ AUTHOR ═══ -->
+      <div class="author-block reveal" itemscope itemtype="https://schema.org/Person">
+        <div class="author-avatar" aria-hidden="true"><span>ЕС</span></div>
+        <div class="author-info">
+          <p class="author-meta-label">Автор материала</p>
+          <h3 itemprop="name" class="author-name">Елена Сорокина</h3>
+          <p itemprop="jobTitle" class="author-role">Педиатр высшей категории, медицинский консультант</p>
+          <p class="author-bio" itemprop="description">12 лет педиатрической практики. Медицинский консультант редакции Pampers с 2021 года. Регулярно проверяет материалы в соответствии с клиническими рекомендациями.</p>
+        </div>
+        <div class="reviewer-block">
+          <p class="reviewer-label">Редакционная проверка</p>
+          <p class="reviewer-name">Анна Ковалёва</p>
+          <p class="reviewer-role">Главный редактор, Pampers Россия</p>
+          <time class="reviewer-date" datetime="2025-03-01">Проверено: 1 марта 2025</time>
+        </div>
+      </div>
+
+      <aside class="editorial-note reveal" role="note">
+        <p><strong>Редакционный дисклеймер:</strong> материал подготовлен в информационных целях, проверен педиатрическим консультантом и обновляется по мере появления новых данных. Не является медицинской рекомендацией.</p>
+      </aside>
+
+      <section class="sources reveal" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Источники</h2>
+        <ol class="sources-list">
+          <li><cite>Европейская академия дерматологии и венерологии.</cite> Клинические рекомендации по профилактике пелёночного дерматита. EADV, 2022.</li>
+          <li><cite>Американская академия педиатрии (AAP).</cite> Caring for Your Baby and Young Child. Bantam Books, 7th ed., 2019.</li>
+          <li><cite>Scheinfeld N.</cite> Diaper Dermatitis. American Journal of Clinical Dermatology, 2005; 6(5).</li>
+          <li><cite>Procter &amp; Gamble Technical Documentation.</cite> Absorbent Article Design Specifications. Internal R&amp;D Reference, 2023.</li>
+          <li><cite>OEKO-TEX Association.</cite> STANDARD 100. oeko-tex.com, 2024.</li>
+          <li><cite>ВОЗ / WHO.</cite> Evidence-Based Guidelines for Newborn Skin Care. WHO, 2021.</li>
+          <li><cite>Российское общество детских дерматологов.</cite> Пелёночный дерматит у детей. Москва, 2023.</li>
+        </ol>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/Organization">
+  <div class="footer-glow" aria-hidden="true"></div>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="https://pampers.ru" class="footer-logo" aria-label="Pampers Россия" itemprop="url">
+        <span class="logo-mark" aria-hidden="true">P</span>
+        <span itemprop="name">Pampers</span>
+      </a>
+      <p class="footer-tagline">Официальный сайт Pampers в России.<br>Бренд Procter &amp; Gamble.</p>
+      <div itemprop="parentOrganization" itemscope itemtype="https://schema.org/Organization">
+        <meta itemprop="name" content="Procter & Gamble">
+        <meta itemprop="url" content="https://www.pg.com">
+      </div>
     </div>
-    <div class="card">
-      <img src="https://cdn.qwenlm.ai/1dd67bcf-0a6e-4c05-9791-29b0fc109b12/a571703d-1701-458f-9f06-8f31900acdd2_image.png?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXNvdXJjZV91c2VyX2lkIjoiMWRkNjdiY2YtMGE2ZS00YzA1LTk3OTEtMjliMGZjMTA5YjEyIiwicmVzb3VyY2VfaWQiOiJhNTcxNzAzZC0xNzAxLTQ1OGYtOWYwNi04ZjMxOTAwYWNkZDIiLCJyZXNvdXJjZV9jaGF0X2lkIjpudWxsfQ.Z75gY3p5Fy-Hi4R_Wao1uMgSIpU0L0K8Kmj91VRDu3E&x-oss-process=image/resize,m_mfit,w_320,h_320" alt="Человек держит в руках спелую клубнику" />
-      <h3>Гарантированное качество</h3>
-      <p>Только лучшие сорта, выращенные без химии.</p>
-    </div>
-    <div class="card">
-      <img src="https://cdn1.flamp.ru/4ee2076f4f0a01d6cf6f630b331d1f1c.png" alt="ВкусСвилл Экология" />
-      <h3>Экологичность</h3>
-      <p>Поддержка локальных фермеров и экологичных хозяйств.</p>
+    <nav class="footer-nav" aria-label="Навигация в подвале">
+      <div class="footer-nav-col">
+        <h3>Статья</h3>
+        <ul>
+          <li><a href="#quick-answer">Главное</a></li>
+          <li><a href="#razmer">Размеры</a></li>
+          <li><a href="#pampers-models">Линейки Pampers</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h3>Компания</h3>
+        <ul>
+          <li><a href="https://pampers.ru/about">О Pampers</a></li>
+          <li><a href="https://www.pg.com" rel="noopener">Procter &amp; Gamble</a></li>
+          <li><a href="https://pampers.ru/contacts">Контакты</a></li>
+          <li><a href="https://pampers.ru/team">Редакция</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h3>Контакты</h3>
+        <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" style="font-style:normal">
+          <p itemprop="addressCountry">Россия</p>
+          <p><a href="tel:+78002000200" itemprop="telephone">8 800 200-02-00</a></p>
+          <p><a href="mailto:info@pampers.ru" itemprop="email">info@pampers.ru</a></p>
+        </address>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p class="footer-legal">&copy; <span id="year">2025</span> Procter &amp; Gamble. Все права защищены.</p>
+      <nav aria-label="Юридические ссылки">
+        <ul class="footer-legal-links">
+          <li><a href="https://pampers.ru/privacy">Конфиденциальность</a></li>
+          <li><a href="https://pampers.ru/terms">Условия</a></li>
+          <li><a href="https://pampers.ru/sitemap">Карта сайта</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
-</section>
+</footer>
 
-<section class="section" id="form">
-  <h2>Оформите фьючерс</h2>
-  <div class="form-box">
-    <form>
-      <label>Имя</label>
-      <input type="text" required placeholder="Иван Иванов">
-
-      <label>Email</label>
-      <input type="email" required placeholder="ivan@example.com">
-
-      <label>Количество (кг)</label>
-      <select required>
-        <option value="">Выберите</option>
-        <option>1 кг</option>
-        <option>5 кг</option>
-        <option>10 кг</option>
-        <option>25 кг</option>
-      </select>
-
-      <button class="btn">Забронировать</button>
-    </form>
-  </div>
-</section>
-
-<!-- ✅ ВОТ ОТВЕТЫ НА ВОПРОСЫ — СЕКЦИЯ FAQ -->
-<section class="section" id="faq">
-  <h2>Часто задаваемые вопросы</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Можно ли отменить фьючерс?</h3>
-      <p>Да, до 1 марта 2026 года. Мы вернём деньги без комиссий.</p>
-    </div>
-    <div class="card">
-      <h3>Какая цена?</h3>
-      <p>Фиксированная: 299 руб/кг — цена 2025 года. Вы защищены от инфляции.</p>
-    </div>
-    <div class="card">
-      <h3>Можно ли передать фьючерс другому?</h3>
-      <p>Да, как ценные бумаги — просто сообщите нам нового владельца.</p>
-    </div>
-  </div>
-</section>
-
+<script src="main.js" defer></script>
 </body>
 </html>
